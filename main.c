@@ -1,40 +1,56 @@
-#include"headerfile.h"
-const int minyear=1900, maxyear=10000;
+#include<stdio.h>
+#include<conio.h>
+
 int main()
 {
-	int Ngay, Thang, Nam;
+	int i, j, n;
 
-	do
+	printf("\nNhap n: ");
+	scanf("%d", &n);
+
+	// Câu a:
+	for(i = 1; i <= n; ++i)
 	{
-		printf("\nNhap nam: ");
-		scanf("%d", &Nam);
-		if(Nam < minyear || Nam > maxyear)
+		for(j = 1; j <= n + i - 1; ++j)
 		{
-			printf("\n nhap lai");
+			printf((j < n - i + 1) ? " " : "%c", 234);
 		}
-	}while(Nam < minyear || Nam > maxyear);
+		putchar('\n');
+	}
 
-	do
-	{
-		printf("\nNhap thang: ");
-		scanf("%d", &Thang);
-		if (Thang < 1 || Thang > 12)
-			printf("\n nhap lai!");
-	}while(Thang < 1 || Thang > 12);
 
-	int NgayTrongThang = TimSoNgayTrongThang(Thang, Nam);
-	do
+
+	// Câu b:
+	for(i = 1; i <= n; ++i)
 	{
-		printf("\nNhap ngay: ");
-		scanf("%d",&Ngay);
-		if(Ngay < 1 || Ngay > NgayTrongThang)
+		for(j = 1; j <= n + i - 1; ++j)
 		{
-			printf("\n nhap lai");
+			printf((j == n - i + 1 || j == n + i - 1 || i == n) ? "%c" : " ", 234);
 		}
-	}while(Ngay < 1 || Ngay > NgayTrongThang);
-	
-	TimNgayKeTiep(Ngay, Thang, Nam);
+		putchar('\n');
+	}
+	printf("\n");
+	// Câu c: 
+	for(i = 1; i <= n; ++i)
+	{
+		for(j = 1; j <= n; ++j)
+		{
+			printf((j <= i) ? "%c" : " ", 234);
+		}
+		printf("\n\n");
+	}
 
+	// Câu d
+	for(i = 1; i <= n; ++i)
+	{
+		for(j = 1; j <= n; ++j)
+		{
+			printf((j == i || j == 1 || i == n) ? "*" : " ");
+		}
+		printf("\n");
+	}
+
+	 
 	getch();
 	return 0;
 }
