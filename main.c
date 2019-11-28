@@ -1,56 +1,32 @@
 #include<stdio.h>
 #include<conio.h>
+#include<math.h>
+#define MAX 100;
+#include "sort.h"
+void nhap (int a[], int n) {
+for (int i=0; i<=n;i++) {
+printf("\nNhap phan tu a[%d]:",i);
+scanf("%d",&a[i]);
+}
+}
 
-int main()
-{
-	int i, j, n;
-
-	printf("\nNhap n: ");
-	scanf("%d", &n);
-
-	// Câu a:
-	for(i = 1; i <= n; ++i)
-	{
-		for(j = 1; j <= n + i - 1; ++j)
-		{
-			printf((j < n - i + 1) ? " " : "%c", 234);
-		}
-		putchar('\n');
-	}
-
-
-
-	// Câu b:
-	for(i = 1; i <= n; ++i)
-	{
-		for(j = 1; j <= n + i - 1; ++j)
-		{
-			printf((j == n - i + 1 || j == n + i - 1 || i == n) ? "%c" : " ", 234);
-		}
-		putchar('\n');
-	}
-	printf("\n");
-	// Câu c: 
-	for(i = 1; i <= n; ++i)
-	{
-		for(j = 1; j <= n; ++j)
-		{
-			printf((j <= i) ? "%c" : " ", 234);
-		}
-		printf("\n\n");
-	}
-
-	// Câu d
-	for(i = 1; i <= n; ++i)
-	{
-		for(j = 1; j <= n; ++j)
-		{
-			printf((j == i || j == 1 || i == n) ? "*" : " ");
-		}
-		printf("\n");
-	}
-
-	 
-	getch();
-	return 0;
+void xuat (int a[],int n) {
+    for (int i=0;i<=n;i++) {
+        printf("%4d",a[i]);
+    }
+    
+}
+int main () {
+    int n;
+    int a[MAX];
+    printf("nhap n");
+    scanf("%d",&n);
+    printf("NHap mang");
+    nhap(a,n);
+    printf("xuat mang");
+    xuat(a,n);
+    
+    void bubble=void bubblesort(a[],n);
+    printf("mang sap xep tang dan la %d",bubble);
+    
 }
